@@ -1,11 +1,34 @@
-const { body} = document
+var corAtual;
 
+
+
+const { body} = document
 try{
 	body.style.backgroundColor = lumiance("#6232cc", 0)
 }catch(e){
 	console.log("houve um erro: ", e.message)
 }
 
+function alteraCor(cor){
+	console.log("altera cor", cor)
+	corAtual = cor;
+	document.getElementById('resultado').style.backgroundColor = corAtual
+	//corEscolhida = document.getElementById("cor").
+	//luminosidade = document.getElementById("luminosidade")
+}
+function alteraLuminosidade(luminosidade){
+	//cor = document.getElementById('resultado').style.backgroundColor
+
+	console.log('corAtual', corAtual)
+	if (luminosidade >0 && luminosidade <100){
+		luminosidadeFinal = - Math.abs(luminosidade)/200
+	} else{
+		luminosidadeFinal = luminosidade/200
+	}
+	
+	console.log('luminosidade', luminosidadeFinal)
+	body.style.backgroundColor = lumiance(corAtual, luminosidadeFinal)
+}
 //logica p converter o hex em uma cor mais clara ou mais escura
 function lumiance(hex, luminosity=0){
 	hex = hex.replace(/[^0-9a-f]/gi, '')
