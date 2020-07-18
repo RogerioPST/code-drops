@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>	
+	<header>
+		<h1>Divisão de dados / middle / render com JS puro</h1>
+	</header>
+	<main class="tela">		
+	</main>
+	<script>
+//[Dados]
+		const channels = [
+	{
+		name: 'gitrogeriopst',
+		likes: 0,
+	},
+	{
+		name: 'instarogeriopst',
+		likes: 100,
+	},
+	{
+		name: 'twitterrogeriopst',
+		likes: 0,
+	}
+]
+
+//==================================
+
+function handleLike(channelName){
+	channels.forEach((currentChannel =>{
+		if (channelName === currentChannel.name){
+			console.log('atualiza os likes do: ', channelName)
+			currentChannel.likes = currentChannel.likes +1
+			render()
+		}
+	}))
+}
+//======================================
+//[Lógica de renderização]
+function buttonTemplate (channel){
+return `
+	<button class="botaoDeLike">
+		<span>${channel.name}</span>
+		<span>Like</span>
+		<span onClick="handleLike('${channel.name}')">${channel.likes} Likes</span>			
+	</button>	
+`
+}
+
+function render(){
+	const tela = document.querySelector('.tela')
+	tela.innerHTML = channels.map(channel =>{
+		return buttonTemplate(channel)
+	//	return `<button>${channel}</button>`
+	})
+	.join('')
+	//join acima eh p trocar virgula por espaço em branco
+
+}
+
+render()
+	</script>
+	
+</body>
+</html>
