@@ -1,3 +1,5 @@
+//o q o jquery faz
+//o bind eh p n perder a ref ao this
 const $ = document.querySelector.bind(document)
 
 function TabNavigation(){
@@ -5,6 +7,7 @@ function TabNavigation(){
 	//spread operator p transformar um html collection em array	
 		links: [...$('.tab-links').children],
 		contents: [...$('.tab-content').children],
+//o atrbuto data-open vai buscar o q quero q apareça!!
 		openTab: $('[data-open]')
 	}
 
@@ -29,8 +32,12 @@ function TabNavigation(){
 	
 	function selectTab(event){
 		hideAllTabContents()
-		removeAllActiveClass()
+		removeAllActiveClass()		
+/*
+target refers to node (where user clicked). event. currentTarget, on the opposite, refers to the node on which current-event listener was attached. ... currentTarget refers to paragraph while event.
+*/
 		const target = event.currentTarget
+		//a linha abaixo vai buscar o data-id="prepare"
 		showCurrentTab(target.dataset.id)
 
 		target.className += ' active'
