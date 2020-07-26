@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<script src="codedrop.js"></script>
+	<header>
+		<h1>Paginate</h1>
+</header>
+
+<div id="paginate">
+		<div class="list">
+				<div class="item"> item 1</div>
+				<div class="item"> item 2</div>
+				<div class="item"> item 3</div>
+		</div>
+		<div class="controls">
+				<div class="first">&#171;</div>
+				<div class="prev"><</div>
+				<div class="numbers">
+						<div>1</div>
+				</div>
+				<div class="next">></div>
+				<div class="last">&#187;</div>
+		</div>
+</div>
+<script>
+	const data = Array.from({length:100}).map((novoValor, indice) =>{
+		return `<div class="item">ItemNovo ${indice+1}</div>`	
+		})
+
+	function populaList(){
+		const data = []
+
+		for (let i =0; i< 100; i++){
+			data.push(`Item ${i+1}`)
+		}
+		console.log(data)
+
+		const dataArraySimples = Array.from({length:100}).map((novoValor, indice) =>{
+		return `<div class="item">ItemNovo ${indice+1}</div>`	
+		})
+		console.log(dataArraySimples)
+
+		const list = document.querySelector('#paginate .list')
+		list.innerHTML = dataArraySimples.join('-----_-_--_-__-------_-_----____--_')
+		return dataArraySimples
+	}
+	
+	//const data = populaList()
+
+	let perPage = 5
+	const state ={
+		page: 4,
+		perPage: perPage,
+//arredonda para cima
+		totalPage: Math.ceil(data.length/perPage),
+		maxVisibleButtons: 5
+	}
+	
+	const html ={
+		get(element){
+			return document.querySelector(element)
+		}
+	}	
+	console.log(state.totalPage)
+	const controls = {
+		next() {
+			state.page++
+			const lastPage = state.page > state.totalPage
+			if (lastPage){
+				state.page--
+			}
+		},
+		prev(){
+			state.page--			
+			if (state.page <1){
+				state.page++
+			}			
+		},
+		goTo(page){
+			if (page < 1){
+				page = 1
+			}
+			//esse + abaixo transforma em numero o q era string
+			state.page = +page
+
+			if (page > state.totalPage){
+				state.page = state.totalPage
+			}		
+		},
+		createListeners(){
+			html.get('.first').addEventListener('click', () =>{
+				controls.goTo(1)
+				update()
+			})
+			html.get('.last').addEventListener('click', () =>{
+				controls.goTo(state.totalPage)
+				update()
+			})	
+			html.get('.next').addEventListener('click', () =>{
+				controls.next()
+				update()
+			})	
+			html.get('.prev').addEventListener('click', () =>{
+				controls.prev()
+				update()
+			})	
+		}
+	}
+
+	const list ={
+		create(item){
+			const div = document.createElement('div')
+			div.classList.add('item')
+			div.innerHTML = item
+
+			html.get('.list').appendChild(div)
+		},
+		update(){
+			html.get('.list').innerHTML = ''
+
+			let page = state.page - 1
+			let start = page * state.perPage
+			let end = start + state.perPage
+
+			const paginatedItems = data.slice(start, end)
+
+			paginatedItems.forEach(list.create)
+
+		},
+	}
+
+	const buttons ={
+		create(number){
+			const button = document.createElement('div')
+			button.innerHTML = number
+
+			if (state.page == number){
+				button.classList.add('active')
+			}
+			button.addEventListener('click', (event) =>{
+				const page = event.target.innerText
+
+				controls.goTo(page)
+				update()
+			})
+			html.get('#paginate .numbers').appendChild(button)
+		},
+		update(){
+			html.get('#paginate .numbers').innerHTML = ""
+			const {startNumberPagination, endNumberPagination} = buttons.calculateMaxVisible()
+
+			for (let page = startNumberPagination; page <=endNumberPagination; page++){
+				buttons.create(page)
+			}
+		},
+		calculateMaxVisible(){
+			const {maxVisibleButtons, page, totalPage} = state
+			let startNumberPagination = (page - Math.floor(maxVisibleButtons/2))
+			let endNumberPagination = (page + Math.floor(maxVisibleButtons/2))
+			if(startNumberPagination <1 ){
+				startNumberPagination = 1
+				endNumberPagination = maxVisibleButtons
+			}
+			if (endNumberPagination > totalPage){
+				console.log('entreiiiii')
+				startNumberPagination = totalPage - (maxVisibleButtons -1)
+				endNumberPagination = totalPage
+				if (startNumberPagination < 1){
+					startNumberPagination = 1
+				}
+			}
+			return {startNumberPagination, endNumberPagination}
+
+		}
+	}
+	function update(){
+		console.log(state.page)
+		list.update()
+		buttons.update()
+	}
+
+	function init(){
+		update()
+		controls.createListeners()		
+	}
+
+	init()
+
+
+</script>
+</body>
+</html>
