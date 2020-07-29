@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<form id="formMoeda" action="">
+		<label for="">
+			Moeda de origem
+			<input type="text" name="valorOrigem" id="valorOrigem" value="1">
+		</label>
+		<select name="moedaTipoOrigem" id="moedaTipoOrigem">
+			<option value="EUR">Euro</option>
+			<option value="LIB">Libra</option>
+			<option value="USD" selected>Dólar</option>
+			<option value="BRL">Real</option>
+		</select>
+		<label for="">
+			Moeda destino
+			<input type="text" name="valorDestino" id="valorDestino">
+		</label>
+		<select name="moedaTipoDestino" id="moedaTipoDestino">
+			<option value="EUR">Euro</option>
+			<option value="LIB">Libra</option>
+			<option value="USD">Dólar</option>
+			<option value="BRL" selected>Real</option>
+		</select>
+	</form>
+	<p id="resultado">
+
+	</p>
+	<script src="codedrop.js"></script>	
+</body>
+</html>
