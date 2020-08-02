@@ -1,0 +1,16 @@
+1.comandos:
+'npm init -y'
+'npm i express --silent'
+'curl "localhost:3000?nome=rogerio"'
+
+2. p ver o log do express, no linux, fazer 
+"DEBUG=* node index.js", sendo que o express usa a lib
+'debug', q precisa ser instalada, caso queira usar fora do express
+3. usando log customizado:
+'const log = require('debug')('api:main')'
+
+4. p ver o log da nossa api, alterar o filtro, no linux, fazer 
+"DEBUG=api* node index.js"
+5. p ver o log especifico da api:math, alterar o filtro, no linux, fazer 
+"DEBUG=api:math node index.js"
+6. opções p usar log em prd, 'pino.js' e 'winston.js'
