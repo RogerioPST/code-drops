@@ -1,0 +1,71 @@
+1.comandos:
+'npx express-generator --no-view --git construindo-servicos-web-com-express-CORS'
+//cria um projeto c template padrao  de express
+'npm i'
+2. tipos de rota:
+router.get('/ab?cd', (rq, r) => r.send("acd ou abcd"))
+router.get('/ab+cd', (rq, r) => r.send("abcd ou abbbbbbbbcd"))
+router.get('/ab*cd', (rq, r) => r.send("abcd ou abXXcd ou abQUALQUER_COISAcd"))
+router.get('/ab(cd)?e', (rq, r) => r.send("abe ou abcde"))
+router.get('/a/', (rq, r) => r.send("qualquer coisa com 'a' no nome"))
+router.get('/.*fly$/', (rq, r) => r.send("qualquer coisa que termine com 'fly'"))
+
+3. tipos de response:
+res.download() - solicita q seja efetuado o download de um 
+arquivo css, js, img. qdo faço isso, ele coloca na resposta o 
+header content-disposition 'attachment', o content-length p o 
+browser saber qto falta p baixar
+res.end() - termina o processo de resposta
+res.json() - envia uma resposta JSON c header 'content-type':'json'
+res.jsonp() - envia uma resposta JSON com supote ao jsonp
+res.redirect() - redireciona uma solicitação
+res.render() - renderiza um modelo de visualização
+res.send() - envia uma resposta de vários tipos
+res.sendFile() - envia um arquivo como um fluxo/stream de 
+octeto (8 bits). são feitos chunks de 8 em 8 bits n importa o 
+tipo de arquivo (xls, xml, pdf etc.). o download tenta ter o 
+mimetype mais correto. é diferente do download. 
+res.sendStatus() - configura o código do status de resposta 
+e envia a sua representação em sequencia de caracteres como o 
+corpo de resposta
+
+4. middlewares: são os interceptors. com eles, podemos alterar
+a req e response como quisermos, mas chamar 'next() ao final', se
+nao a req fica pendurada!!!
+/* esse midleware verifica se tem content type 'json' e prepara 
+a resposta p 'json'
+"app.use(express.json());"
+caso eu queira criar o meu middleware, crio com:
+"const meuMidlleware = (req, resp, next) =>{
+	console.log('meu middleware')
+	return next()
+}"
+e coloco na rota
+"app.get('/rota', [meuMiddleware], (req, resp) =>{
+	console.log('apos passar pelo meu middleware, chega aqui')
+})
+}"
+ */
+ /* n usa o charset extendido. ensina a ler o querystring.
+transforma o %20 para espaço na querystring. vai criar um
+obj req.query*/
+"app.use(express.urlencoded({ extended: false }));"
+app.use(express.text()) - caso queira texto puro, esse middleware 
+coloca no content-type 'text/plain' puro.
+app.use(express.raw()) - no caso de upload
+
+5. CORS - fundamento:
+- recebe e repassa cabecalhos especificos 'Access-Control-*' 
+e 'Origin'
+- requisições complexas (q n sao safe e tem um body q pode
+causar efeito colateral no server, q os server consideram
+perigosas) exigem o chamado 
+'Pre-flight Request' - metodo OPTIONS do HTTP, ou seja, 
+o servidor conversa c o navegador pedindo isso.
+-por segurança, os erros de CORS n ficam disponiveis no JS, 
+apenas no navegador.
+/* com a linha abaixo, vai ser criado um header
+'Access-Control-Allow-Origin: '*' e  sem a linha abaixo, o 
+server n aceita req de origens diferentes, pois o padrao do 
+servidor eh negar */
+"router.use(cors())"
