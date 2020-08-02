@@ -1,0 +1,23 @@
+1.comandos:
+'yarn init -y'
+'yarn add express'
+'yarn add typescript ts-node-dev - D'
+'yarn tsc --init' // cria o arquivo tsconfig.json
+'yarn add @types/express -D' //adicionar as tipagens do express
+'yarn add uuidv4'
+'yarn add nodemailer' //p envio de email no node
+'yarn add @types/nodemailer -D' //adicionar as tipagens
+
+2. /* usar named export e n usar o export default, pois facilita nos
+auto imports */
+3. criar script de 'start' no package.json:
+-"start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
+4. /* com o 'Omit<User, 'id'>', digo q em props vou receber todas as 
+	propriedades, exceto id */
+5. /* o 'Object.assign(this, props)' equivale a dizer que
+		this.name = props.name
+		this.email = props.email
+		this.password = props.password	*/	
+6. na pasta useCases ficam as funcionalidades, ou seja, as ações
+q os usuarios podem realizar na aplicação
+7. p teste de envio de email, usar o mailtrap.io
