@@ -1,0 +1,28 @@
+1.comandos:
+'npx express-generator --no-view --git construindo-servicos-web-com-express-CORS'
+//cria um projeto c template padrao  de express
+'npm i'
+
+2. Segurança?
+(parentesis - os americanos abreviam palavras longas c 
+numeros (de acordo com a qtd de letras entre as letras da sigla
+) e letras:
+	-	Localization (L10N) - numeros e datas de acordo com o 
+	- Internalization (I12N) - traduzir as msg p o idioma local 
+	formato local
+	- InternationalizatioN (I18N) - 
+)
+- Autentication (a11n) - provar q vc é vc mesmo
+- Autorization (a12n) - após estar autenticado, posso 
+autorização p acessar tais recursos, o q posso fazer no ambiente
+
+3. Tipos de Esquemas de Segurança/Autenticação:
+-BASIC: em q se autentica passando usuario e senha.
+Antigamente, via ftp, por ex, 
+ftp://usuarioRogerio:senhaRogerio@enderecoServidor, q
+era autenticado no servidor c arquivo passwd c usuarios e senhas.
+Mais recentemente, no Header, 
+"Authorizatrion: Basic Zgfhujijajknknjhjhuhd2Vxysz="
+"Base64_encode('rogerio:senha')"
+
+
