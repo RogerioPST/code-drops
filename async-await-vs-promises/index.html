@@ -28,6 +28,12 @@ function getPosts(){
 
 getPosts()
 
+async function getPostsComAsyncAwait(){
+	await fetch('https://jsonplaceholder.typicode.com/posts')
+}
+
+getPostsComAsyncAwait()
+
 
 </script>		
 </body>
