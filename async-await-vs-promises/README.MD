@@ -6,11 +6,23 @@ o q pode ser uma img, um json etc
 
 <li>
 coloca no console como tabela, se os tipos de dados de todas as linhas do retorno forem iguais
-</li>
 
 ```javascript
 console.table
 ```
+</li>
+
+<li>
+o jeito mais fácil de transformar uma função em uma promise é com async/await
+
+```javascript
+async function oh(){
+	return await console.log('hello')
+}
+```
+</li>
+
+
 
 <li>
 sempre vou colocar um await em uma Promise p pegar o resultado que essa Promise fornece. Se eu fizer await em um dado q n é uma Promise, ele vai retornar uma Promise
@@ -18,6 +30,7 @@ sempre vou colocar um await em uma Promise p pegar o resultado que essa Promise 
 <li>
 o await trava o código enquanto não trouxe o resultado da função chamada
 </li>
+
 
 </ul>
 

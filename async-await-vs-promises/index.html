@@ -19,20 +19,32 @@ function getPosts(){
 		return data
 	})
 	.then((dado)=>{
-		console.log(dado)
+		/* console.log(dado) */
 //coloca no console como tabela caso os tipos de dados de todos 
 //os retornos sejam iguais
-		console.table(dado)
+		/* console.table(dado) */
 	})
 }
 
 getPosts()
 
 async function getPostsComAsyncAwait(){
-	await fetch('https://jsonplaceholder.typicode.com/posts')
+	/* console.log('__________________________') */
+	const result = await fetch('https://jsonplaceholder.typicode.com/posts')
+	const data = await result.json()
+	/* console.log(data)
+	console.table(data)
+	console.log('__________________________') */
 }
 
 getPostsComAsyncAwait()
+
+//o jeito mais fácil de transformar uma função em uma promise é com async/await
+async function oh(){
+	return await console.log('hello')
+}
+
+console.log(oh())
 
 
 </script>		
