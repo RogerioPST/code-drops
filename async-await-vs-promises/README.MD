@@ -3,11 +3,12 @@
 chamando o 'then'. uma promise como um readable stream, 
 o q pode ser uma img, um json etc
 </li>
+
 <li>
-```console.table```
 coloca no console como tabela caso os tipos de dados de todos 
 os retornos sejam iguais
 </li>
+```console.table```
 </ul>
 
 
