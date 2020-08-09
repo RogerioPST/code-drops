@@ -8,7 +8,7 @@ o q pode ser uma img, um json etc
 coloca no console como tabela caso os tipos de dados de todos 
 os retornos sejam iguais
 </li>
-```console.table```
 </ul>
+```console.table```
 
 
