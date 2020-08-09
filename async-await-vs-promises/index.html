@@ -31,21 +31,56 @@ getPosts()
 async function getPostsComAsyncAwait(){
 	/* console.log('__________________________') */
 	const result = await fetch('https://jsonplaceholder.typicode.com/posts')
-	const data = await result.json()
+	const data = result.json()
+	
 	/* console.log(data)
 	console.table(data)
 	console.log('__________________________') */
+	return data
 }
-
-getPostsComAsyncAwait()
+//função autoinvocavel e os parentesis servem p limitar o escopo
+(async function (){
+	const data = await getPostsComAsyncAwait()
+	console.table(data)
+}())
 
 //o jeito mais fácil de transformar uma função em uma promise é com async/await
-async function oh(){
+async function ola(){
 	return await console.log('hello')
 }
 
-console.log(oh())
+console.log(ola())
 
+
+async function getUsers(){
+	/* console.log('__________________________') */
+	const result = await fetch('https://jsonplaceholder.typicode.com/users')
+	const data = result.json()
+	return data
+}
+async function getUsersPosts(userId){	
+	const result = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+	const data = result.json()
+	return data
+}
+//getUsers().then(console.table)
+
+(async function() {
+	const users = await getUsers()
+	const posts = []
+
+	for(let i=0; i< users.length; i++){		
+		posts.push(getUsersPosts(users[i].id))
+	}
+	const allPosts = await (Promise.all(posts))	
+	//console.log(allPosts)
+	//ou
+	Promise.all(posts).then(console.log)
+
+	const result = await Promise.all(users.map(user => getUsersPosts(user.id)))
+	console.log('final', result)
+	
+}())
 
 </script>		
 </body>
