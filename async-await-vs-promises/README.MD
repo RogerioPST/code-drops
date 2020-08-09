@@ -9,6 +9,7 @@ coloca no console como tabela caso os tipos de dados de todos
 os retornos sejam iguais
 </li>
 </ul>
+
 ```javascript
 console.table
 ```
