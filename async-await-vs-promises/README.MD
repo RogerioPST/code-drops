@@ -1,3 +1,8 @@
+#ASYNC e AWAIT vs PROMISES
+[x] colocar anotações
+[]  tratar com try/catch depois
+
+##ANOTAÇÕES:
 <ul>
 <li>o fetch retorna uma Promise que precisa ser resolvida
 chamando o 'then'. uma promise como um readable stream, 
