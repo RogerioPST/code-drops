@@ -1,6 +1,6 @@
 # ASYNC e AWAIT vs PROMISES
 - [x] colocar anotações
-- []  tratar com try/catch depois
+- [ ]  tratar com try/catch depois
 
 ## ANOTAÇÕES:
 <ul>
