@@ -8,10 +8,17 @@ o q pode ser uma img, um json etc
 coloca no console como tabela caso os tipos de dados de todos 
 os retornos sejam iguais
 </li>
-</ul>
 
 ```javascript
 console.table
 ```
+
+<li>
+sempre vou colocar um await em uma Promise. Se eu fizer await em um dado q n é uma Promise, ele vai retornar uma Promise
+</li>
+
+</ul>
+
+
 
 
