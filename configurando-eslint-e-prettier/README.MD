@@ -115,6 +115,18 @@ module.exports = {
 ```
 
 </li>
+<li>o arquivo index.js deve ficar assim após configurar o eslint e o prettier:
+
+```javascript
+const restify = require('restify');
+
+const PORT = 5000;
+const app = restify.createServer();
+app.get('/', (req, res) => res.send({ hello: 'World' }));
+
+app.listen(PORT);
+```
+</li>
 </ol>
 
 
