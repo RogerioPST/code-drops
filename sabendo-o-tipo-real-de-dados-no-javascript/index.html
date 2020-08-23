@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sabendo o tipo real de dados no javascript</title>
+</head>
+<body>
+		<script>
+			//ao inves de fazer sua propria validação, usar o Joi ou yup
+			function é(tipo = '', valor){				
+				const resultadoDoToString = Object.prototype.toString.call(valor).toLowerCase()
+				console.log(resultadoDoToString)
+				return resultadoDoToString.includes(tipo.toLowerCase())
+			}
+
+			console.log('[] é array?', é('array', []))
+			console.log('0 é number?', é('number', 0))
+			console.log('new Promise(() => {}) é Promise?', é('promise', new Promise(() => {})))
+		</script>
+    
+</body>
+</html>
