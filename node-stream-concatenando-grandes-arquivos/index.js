@@ -50,7 +50,7 @@ setInterval(() => process.stdout.write('.'), ONE_SECOND).unref()
 const streams = files.map(
 	item => createReadStream(join(filesDir, item))
 )
-//const combinedStreams = new StreamConcat(streams)
+const combinedStreams = new StreamConcat(streams)
 const finalStream = createWriteStream(output)
 
 //p cada linha do csv, vai cair no transform e vamos extrair apenas o q queremos
