@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>every-some-flat-flatMap-entries-fromEntries-js</title>
+</head>
+<body>
+		<script>
+			//every
+			const usuarioRespostas = {
+				nome: 'Rogerio',
+				respostas: [
+					{questao_id: '001', acertou: true},
+					{questao_id: '002', acertou: true},
+					{questao_id: '003', acertou: true},
+					{questao_id: '004', acertou: true},
+					{questao_id: '005', acertou: true},
+				]
+			}
+			console.group('every')
+			const acertouTodasComEvery = usuarioRespostas.respostas.every(function(valor){				
+				//return valor.questao_id > 3 
+				return valor.acertou //retorna booleano
+			})
+			console.log('acertouTodasComEvery', acertouTodasComEvery)
+			console.groupEnd('every')
+
+			//some
+			console.group('some')
+			const acertouTodasComsome = usuarioRespostas.respostas.some(function(valor){				
+				return valor.acertou //retorna booleano
+			})
+			console.log('acertouTodasComsome', acertouTodasComsome)
+			console.groupEnd('some')
+
+			//flat
+			const usuariosRespostas = [
+				{
+					nome: 'Rogerio',
+					respostas: [
+						{questao_id: '001', acertou: false},
+						{questao_id: '002', acertou: true},
+						{questao_id: '003', acertou: false},
+						{questao_id: '004', acertou: true},
+						{questao_id: '005', acertou: true},
+					]
+				},
+				{
+					nome: 'Joaquim',
+					respostas: [
+						{questao_id: '001', acertou: true},
+						{questao_id: '002', acertou: true},
+						{questao_id: '003', acertou: false},
+						{questao_id: '004', acertou: true},
+						{questao_id: '005', acertou: true},
+					]
+				},
+				{
+					nome: 'Maria',
+					respostas: [
+						{questao_id: '001', acertou: true},
+						{questao_id: '002', acertou: true},
+						{questao_id: '003', acertou: false},
+						{questao_id: '004', acertou: true},
+						{questao_id: '005', acertou: true},
+					]
+				},
+				{
+					nome: 'Antonia',
+					respostas: [
+						{questao_id: '001', acertou: false},
+						{questao_id: '002', acertou: false},
+						{questao_id: '003', acertou: true},
+						{questao_id: '004', acertou: true},
+						{questao_id: '005', acertou: false},
+					]
+				},
+		]
+
+		const todasRespostas = usuariosRespostas.map((usuario) =>{
+			return usuario.respostas
+		})
+		console.group('flat')
+		console.log('todasRespostas [um array com 4 arrays com cinco elem]', todasRespostas)
+		console.log('todasRespostascomFlat(0) - nivel 0 - [um array com 4 arrays com cinco elem]]', todasRespostas.flat(0))
+		console.log('todasRespostascomFlat(1) - nivel 1 - [único array com os mesmos 20 elementos]', todasRespostas.flat(1))
+		console.log('todasRespostascomFlat() - nivel 1 q eh o default -[único array com os mesmos 20 elementos]', todasRespostas.flat())
+
+
+		const novoArrayNivel2 = [
+			[
+				[1,4],
+				[40,23],
+				[54,232]
+			],
+			[
+				[21,234],
+				[420,2233],
+				[534,23232]
+			],
+		]
+		console.log('novoArrayNivel2 [um array com 2 arrays com 3 arrays com 2 elementos cada]', novoArrayNivel2)
+		console.log('novoArrayNivel2(2) - nivel 2 - [único array com os mesmos 12 elementos]', novoArrayNivel2.flat(2))
+		console.groupEnd('flat')
+		//flatMap
+		console.group('flatMap')
+		const todasRespostasComFlatMapSeparado = usuariosRespostas
+			.map((usuario) => usuario.respostas)
+			.flat()
+		console.log('todasRespostasComFlatMapSeparado', todasRespostasComFlatMapSeparado)	
+		const todasRespostasComFlatMapJunto = usuariosRespostas
+			.flatMap((usuario) => usuario.respostas)			
+		console.log('todasRespostasComFlatMapJunto', todasRespostasComFlatMapJunto)	
+		console.groupEnd('flatMap')
+
+		//entries e fromEntries
+		//funções de objetos
+		//entries espera q passemos um objeto e retorna um array
+		//fromEntries espera que passemos um array e retorna um objeto
+		console.group('entries e fromEntries')
+		const usuario = {
+			nome: 'rogerio', 
+			sobrenome: 'stapait'			
+		}
+		console.log('entries', Object.entries(usuario))
+		console.log('fromEntries', Object.fromEntries([
+			['Cidade', 'SP'],
+			['Estado', 'SP']
+		]))
+
+		const arrayInvertido = Object.entries(usuario).map(u =>{
+			return [
+				u[1],
+				u[0]
+		]
+		})
+		console.log('arrayInvertido', arrayInvertido)
+		console.log('objetoInvertido', Object.fromEntries(arrayInvertido))
+		
+		const usuarios = [
+	{
+		id: '001',
+		nome: 'Rogerio', 
+		idade: 28, 
+		email: 'rogerio.pst1@gmail.com',
+		foto: 'https://via.placeholder.com/300/200&id=1',
+		sexo: 'M',
+		estado: 'SP', 
+	},
+	{
+		id: '002',
+		nome: 'Rogeriop', 
+		idade: 20, 
+		email: 'rogerio.pst@gmail.com',
+		foto: 'https://via.placeholder.com/300/200&id=1',
+		sexo: 'M',
+		estado: 'RJ', 
+	},
+	{
+		id: '003',
+		nome: 'Vanessa', 
+		idade: 29, 
+		email: 'van.pst1@gmail.com',
+		foto: 'https://via.placeholder.com/300/200&id=1',
+		sexo: 'F',
+		estado: 'MS', 
+	},
+]
+	const usuariosNormalizados = usuarios.reduce(function(acumulador, valorAtual){
+		acumulador[valorAtual.id] = valorAtual
+		return acumulador
+	},{})
+	console.log('usuarios', usuarios)
+	console.log('usuariosNormalizados com reduce', usuariosNormalizados)
+	
+		const usuariosNormalizadosComFromEntries = Object
+			.fromEntries(usuarios.map(u =>{
+				return [
+					u.id, 
+					u
+				]
+			}))
+			console.log('usuariosNormalizadosComFromEntries', usuariosNormalizadosComFromEntries)
+
+		const questoesAgrupadas = Object.fromEntries(todasRespostasComFlatMapJunto.map((resp) =>{
+			return [
+				resp.questao_id,
+				0
+			]
+		}))	
+
+		const qtosAcertosCadaQuestaoTeve = Object.entries(questoesAgrupadas)
+			.map(_questao => {
+				return [
+					_questao[0],
+					todasRespostasComFlatMapJunto.filter(resposta =>{
+						return resposta.questao_id === _questao[0] && resposta.acertou
+					}).length
+				]
+			})
+			console.log('qtosAcertosCadaQuestaoTeve', qtosAcertosCadaQuestaoTeve)
+			/* 
+			'001': ['Rogerio', 'Antonia'], //questao e pessoas q acertaram
+			'002': ['Rogerio', 'Antonia'],			
+			*/
+
+			console.groupEnd('entries e fromEntries')		
+		</script>
+    
+</body>
+</html>
