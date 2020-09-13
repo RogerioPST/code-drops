@@ -55,6 +55,7 @@ sistemas de boot:
 - systemctl enable apt-daily.service
 - systemctl stop apt-daily.service
 - systemctl start apt-daily.service
+- systemctl start apache2
 
 estrutura do sistema de arquivos:
 -/
@@ -127,4 +128,66 @@ cmd:
 -mount | grep mapper
 -ls -lR / (lista recursivo todo o sistema)
 </li>
+<li>
+vsz - virtual size = recurso compartilhado
+processos - é td q é executado no sist. são acessiveis atraves do diretorio /proc e são identificados pelo seu PID (process identification)
+-time - tempo de uso da cpu
+- estado de execução (STAT):
+-r- running (em execução - q está pedindo p o processador calcular algo p ele naquele momento)
+-s - sleep (está ativo, porem fazendo nada no momento (ref a tempo de processamento))
+-t - stopped (processo foi parado por algum cmd)
+-z - zombie (processo foi morto, mas os recursos ainda estao ocupados para ele)
+
+-ps (process status), top, htop leem o /proc (o q está na ram) e obtem info.
+cmd:
+- ls /proc/37
+dentro desse diretorio:
+- cat cmdline ( o cmd q colocou o proc 37 no ar)
+- file mem
+- cat mountinfo
+- cat cpuset
+- cat coredump_filter
+- cat status 
+- ls fd -l (lista file descriptor)
+
+para n precisar ver dessa forma, existem o ps, top, htop:
+-cmd:
+-ps (process status - bem basico)
+-ps a (status de todos processos rodando no terminal)
+-ps au (status de todos processos inclusive de outros USUARIOS rodando no terminal)
+-ps aux (status de todos processos inclusive de outros USUARIOS inclusive em outros terminais)
+-ps auxf (status de todos processos e pais e filhos, inclusive de outros USUARIOS inclusive em outros terminais - em forma de arvore)
+-top
+- man 7 signal (manual do sistema = man 7)
+
+- cada processo pode receber sinais do sist e assim tomar determinada providencia, cada sinal representa uma determinada acao. os coamdnos de manipulacao de processos sao:
+-kill = manda um signal term = 15 = kill -15
+-kill -9= manda um signal = 9 (so fazer se o de cima n rolar)
+
+-killall apache - manda sinal 15 p todos os processos com aquele nome
+-killall -9 apache - manda sinal 9 p todos os processos com aquele nome
+-fuser -mv /media - mostra processos q estao relacionados a um ponto de montagem especifico
+-fuser -kmv /media -mata  processos q estao relacionados a um ponto de montagem especifico
+-nice (aumento a prioridade (sigla PR) do processo q vou rodar (-20 - max prioridade; +20 - min prioridade)) - sigla NI qdo faço cmd HTOP, TOP
+-nice --20 sleep 100
+-nice -20 sleep 100
+-renice -20 PID (aumento a prioridade (sigla PR) do processo q jah está rodando (-20 - max prioridade; +20 - min prioridade)) - sigla NI qdo faço cmd HTOP, TOP
+
+jobs - mostra os processos em segundo plano
+CTRL+Z - mudo o status p stop e exibe o NUMPROC=5
+bg %5 (NUMPROC=5) - exec job em segundo plano
+fg %5 (NUMPROC=5) - exec job em primeiro plano
+
+</li>
+<li>
+outros cmd:
+-mount
+-umount /media
+- sleep 100 & sleep 500 & (& - envia processo p segundo plano (isso gera um job))
+-pgrep sleep = ps aux | grep sleep
+-ping -c 99 www.google.com.br &> /tmp/ping.google (faz o ping 99 vezes e envio p o arquivo ping.google)
+-nl píng.google (conte o numero de linhas)
+
+</li>
+
 </ol>
