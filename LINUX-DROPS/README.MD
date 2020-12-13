@@ -48,6 +48,12 @@ sistemas de boot:
 	- cmd: 
 
 5. comandos: 
+-sync 
+-$PATH
+-reboot. se der cmd n encontrado, fazer os passos 1-,2-,3- abaixo:
+1- export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
+2- echo $PATH >> /etc/environment
+3- nano /etc/environment e acrescenta 'export PATH' no começo da linha.
 -ls /etc/systemd
 -ls /etc/systemd/system (lista os targets)
 -systemd-analyze blame (mostra qto tempo cada coisa dentro dos -targets demorou p ser carregada (tempo de boot das ferramentas))
@@ -61,7 +67,7 @@ estrutura do sistema de arquivos:
 -/
 -/bin - executaveis basicos do sist
 -/boot - arq do bootloader e o kernel
--/dev - arq de dispositivos (mapeamento de hw de bloco e serial): (sda - HD; tty - terminal virtual; sr0 (arq de gravacao) - cd room, dvd room , sata; ppp - arq de discagem; rtc - relogio de hardware; fb0 - framebuffer; dm1 - dispositivo de lvm (logical volume management))
+-/dev - arq de dispositivos (mapeamento de hw de bloco e serial): (sda - HD; tty - terminal virtual; sr0 (arq de gravacao) - cd room, dvd room , sata; ppp - arq de discagem; rtc - relogio de hardware; fb0 - framebuffer; dm1 - dispositivo de lvm (logical volume management - uma camada por cima p enxergar como se fosse um unico disco soh))
 -/etc - arq de config do sist e dos serviços: td q precisa ser configurado praticamente estah aqui (logrotate, samba etc.), exceto programas de terceiros.
 -/home - diretorios pessoais dos usuarios
 -/lib - bibliotecas do sist
@@ -97,7 +103,7 @@ gerenciamento de hardware:
 - cat /proc/interrupts
 - cat /proc/devices
 - cat /proc/mdstat (scusi (sdd, por ex))
--> cmd de hardware:
+-> cmd de hardware: esses comandos leem os arquivos do /proc e formatam os dados para que sua saida seja mais adequada:
 -lscpu
 -lspci
 -lssci
@@ -114,7 +120,8 @@ gerenciamento de hardware:
 -inxi -F (resumo do lshw)
 
 logs:
-cmd: cat /etc/rsyslog.d/50-default.conf:
+cmd: vi /etc/rsyslog.conf
+cmd p saber em q diretorio fica determinado log: cat /etc/rsyslog.d/50-default.conf:
 -> estrutura de log:
 data HOST processo MENSAGEM
 
@@ -122,11 +129,13 @@ data HOST processo MENSAGEM
 </li>
 <li>
 cmd:
--df -h
+-df -h ou df -Th
 -ss -tulanp (quais serviços estão ativos)
 -mount | grep -v tmpfs |grep -v cgroup
 -mount | grep mapper
 -ls -lR / (lista recursivo todo o sistema)
+-vi /etc/ssh/sshd_config
+-systemctl restart sshd.service
 </li>
 <li>
 vsz - virtual size = recurso compartilhado
@@ -181,6 +190,8 @@ fg %5 (NUMPROC=5) - exec job em primeiro plano
 </li>
 <li>
 outros cmd:
+- ss -natp (portas abertas)
+- ss -naup (portas abertas)
 -mount
 -umount /media
 - sleep 100 & sleep 500 & (& - envia processo p segundo plano (isso gera um job))
@@ -189,5 +200,68 @@ outros cmd:
 -nl píng.google (conte o numero de linhas)
 
 </li>
-
+<li>
+outros conceitos:
+-no cmd ls, aparece um numero apos as permissoes. em arquivos, essa eh q td de hard-link, q sao a qtd de nomes diferentes q um msm arquivo pode ter, enquanto em diretorios, eh a qtd de diretorios, incluindo o . e o ..
+- p saber se eh o mesmo hard-link, usar o cmd 'ls -i' p ver se eh o mesmo inodo.
+</li>
+<li>
+principais comandos:
+-ls -l (ls longo)
+-ls -a (ls all, incluindo arq ocultos)
+-ls -h (ls human, q calcula e transforma em Kbytes, Mbytes etc)
+-ls -r (ls em ordem inserva)
+-ls -lhrS (ls usado p mostrar os arquivos de maior tamanho)
+-ls -R (ls recursivo)
+- ls -la --sort=time /var/ (ls ordenado do mais recente p mais antigo)
+-cd - (o - indica q vai para o diretorio anterior ao atual; o "-" serve p ls tb)
+- source .bashrc (no dir home, source p carregar algum script ou algo assim (usar apos alterar esse arquivo)); esse arquivo .bashrc permite colocar cor nos cmd e dar apelidos/alias, permite q o cp, rm, mv n sobreescreva e te pergunte p cada arquivo se deseja sobreescrever na opcao 'alias' com 'cp -i', por ex)
+- mkdir dir1/dir2/dir3/dir4 (dah erro pq ele entende q precisam existir todos os dir ate poder criar o dir4)
+- mkdir -p dir1/dir2/dir3/dir4 (n dah erro pq ele cria msm q n existam todos os dir ate poder criar o dir4)
+- tree (mostra a arvore de dir; instala c apt install tree, se n tiver instalado)
+-mkdir -p Relatorios/mes-{01..12}/semana-{1..4}
+-cp -rv /etc . (copia de forma recursiva e verbosa td q está em etc p o dir atual)
+-alias (mostra todos os apelidos q os comandos tem)
+-unalias cp (desfaz o apelido do cp, por ex)
+-mv (cmd p mover e renomear)
+-ln arquivo.log outro.log (cria um hard link)
+-ln -s arquivos.log link-arquivos (cria um link simbolico (apontamento). o inodo vai ser diferente)
+-less auth.log (pagina arquivo; mostra as linhas ate cobrir toda pagina. usar setas direcionais p andar pelo arquivo e /PALAVRA p procurar uma palavra no arquivo)
+-bzless auth.bz2 (permite fazer less em arq compactados)
+-gzless auth.gzip (permite fazer less em arq compactados)
+- file auth.png( file mostra o tipo de arquivo, pois imagina q um invasor copie o conteudo de um arquivo cp auth.log auth.png, o cmd file auth.png vai dizer q eh um ASCII text)
+- date
+-tail -f arq.log (faz tail e n finaliza o arquivo)
+-tail -n 35 arq.log (ultimas 35 linhas)
+-head -n 35 arq.log (primeiras 35 linhas)
+-nl arq.log ou cat -n arq.log (faz um cat e mostra o num da linha)
+- wc arq.log (wc - wordcount ; mostra qtas linhas (wc -l), palavras (wc -w) e caracteres (wc -c) o arquivo tem)
+-du -h /var (qto de espaço o diretorio está usando)
+-du -h /var | sort -n (qto de espaço o diretorio está usando e ordena pelo tamanho/numerico) 
+-du -h /var | sort -h (qto de espaço o diretorio está usando e ordena pelo tamanho inteligivel p humanos (kilo, mega, giga)) 
+-du -h /var | sort(qto de espaço o diretorio está usando e ordena pelo nome) 
+-du -h / --max-depth=1 | sort -h (qto de espaço o diretorio está usando no max de 1 nivel de profundidade)
+-df -h (disk free - mostra qto está ocupando por particao c human readable)
+-df -hT (disk free - mostra qto está ocupando por particao c human readable e mostra o tipo de sistema de arquivo)
+-alias grep='grep --color=auto'
+-ls -lR / | grep texto-procurado
+-grep -v ^# arq.log (-v eh o inverso, ou seja, q n tem o padrao procurado, no caso, q n começa c comentario)
+-grep -v ^# arq.log | grep -v ^$ (-v eh o inverso, ou seja, q n tem o padrao procurado, no caso, q n começa c comentario e tira as linhas vazias)
+-grep -i invalid arq.log (p ignorar o Case sensitive)
+-grep -ri invalid /usr/paulo (procurar recursivamente)
+-grep -ri invalid /usr/paulo | less (procurar recursivamente e pagina os resultados)
+-grep -ril invalid /usr/paulo (procurar recursivamente emostra os nomes dos arquivos apenas onde aparecem invalid)
+-cut -d : -f 1,3,5 arq.log (corte utilizando delimitador ':' e mostre os campos 1,3,5 )
+-cut -d " " -f 1,3,5-50 arq.log (corte utilizando delimitador ' ' e mostre os campos 1,3 e 5 ao 50, se a msg for mto grande )
+-ls -l / /teste > lista-ok 2> lista-fail (grava no arq lista-ok o q funciona e no lista-fail o q deu erro)
+-cat /etc/group
+-cat /etc/passwd
+-which useradd (para encontrar o executavel)
+-file /usr/sbin/useradd
+-man man
+-man sudoers (vai mostrar como deve estar o arquivo sudoers, por ex)
+-chage -l c079463 (mostra as info ref a age/idade/expiracao do usuario)
+-cat /etc/login.defs (mpstra os padroes de criacao de usuario/login)
+-id c079463 (mostra o uid, grupos etc.)
+</li>
 </ol>
