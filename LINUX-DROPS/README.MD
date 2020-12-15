@@ -1,9 +1,11 @@
 <ol>
 <li> GERAL - 
 ring 0 - td q n pode ser mexido pelo usuario ou por aplicacoes sem privilegio fica aqui.
-basicamente duas area de memoria:
-kernelspace - onde roda o kernel e aplicacao de ring 0
-userspace - resto do sist fica, o q n precisa ter privilegio de root.
+basicamente duas areas de memoria:
+<ul>
+<li>kernelspace - onde roda o kernel e aplicacao de ring 0</li>
+<li>userspace - resto do sist fica, o q n precisa ter privilegio de root.</li>
+</ul>
 
 as principais partes dos sist são:
 kernel - nucleo do SO
@@ -48,6 +50,7 @@ sistemas de boot:
 	- cmd: 
 
 5. comandos: 
+-apt install manpages-pt
 -sync 
 -$PATH
 -reboot. se der cmd n encontrado, fazer os passos 1-,2-,3- abaixo:
@@ -161,13 +164,15 @@ dentro desse diretorio:
 
 para n precisar ver dessa forma, existem o ps, top, htop:
 -cmd:
--ps (process status - bem basico)
--ps a (status de todos processos rodando no terminal)
+-ps (process status - processos q rodam no seu terminal, no caso o seu terminal eh um TTY, um PTS (pseudo terminal) pq eh SSH)
+-ps a (status de todos processos rodando no terminal, inclusive o q faz esse terminal funcionar)
 -ps au (status de todos processos inclusive de outros USUARIOS rodando no terminal)
--ps aux (status de todos processos inclusive de outros USUARIOS inclusive em outros terminais)
--ps auxf (status de todos processos e pais e filhos, inclusive de outros USUARIOS inclusive em outros terminais - em forma de arvore)
--top
-- man 7 signal (manual do sistema = man 7)
+-ps aux (status de todos processos incluindo os q n estao relacionados a nenhum terminal (fisico (tty), terminal qualquer e nem pseudo terminal (PTS))) -> os processos q aparecerem entre colchetes são do kernel (boot inicial, scheduler etc)
+-ps auxf | less (status de todos processos e pais e filhos, inclusive de outros USUARIOS inclusive em outros terminais - em forma de arvore)
+->observacao: no cmd ps, a coluna VSZ eh o memoria virtual, RSS eh uso de recurso compartilhado; stat eh o status (S (sleep), I(Interligado ao kernel) R(running), T(stopped), Z(zombie - finalizado ou por um erro grave na estrutura do processo (por ex, arq corrompido) ou por alguem ter forçado a saída do processo de um modo n convencional ou erro de memoria ), D (defunt - indo p o status Zombie))
+-top (visualizo em tempo real o q esta ocorrendo na RAM)
+->observacao: por padrao, o cmd top ordena por %cpu e us (user), sy (system), ni (nice - prioridade), id (idle - ocioso, fazendo nd), por padrao, o linux n usa swap - qdo chegar a 90% de uso da RAM ele vai começar a pegar os processos menos usados na RAM e jogar p SWAP
+- man 7 signal (manual do sistema = man 7 - ajuda do kernel)
 
 - cada processo pode receber sinais do sist e assim tomar determinada providencia, cada sinal representa uma determinada acao. os coamdnos de manipulacao de processos sao:
 -kill = manda um signal term = 15 = kill -15
@@ -204,9 +209,10 @@ outros cmd:
 outros conceitos:
 -no cmd ls, aparece um numero apos as permissoes. em arquivos, essa eh q td de hard-link, q sao a qtd de nomes diferentes q um msm arquivo pode ter, enquanto em diretorios, eh a qtd de diretorios, incluindo o . e o ..
 - p saber se eh o mesmo hard-link, usar o cmd 'ls -i' p ver se eh o mesmo inodo.
+-o wget eh um mini browser q server p baixar arquivos da web
 </li>
-principais comandos:
 <li>
+principais comandos:
 <ul><li>-ls -a (ls all, incluindo arq ocultos)
 </li><li>-ls -l (ls longo)
 </li><li>-ls -h (ls human, q calcula e transforma em Kbytes, Mbytes etc)
@@ -259,10 +265,79 @@ principais comandos:
 </li><li>-which useradd (para encontrar o executavel)
 </li><li>-file /usr/sbin/useradd
 </li><li>-man man
+</li><li>-man find (no cmd man, pesquisar por algum termo c "/texto-buscado")
 </li><li>-man sudoers (vai mostrar como deve estar o arquivo sudoers, por ex)
 </li><li>-chage -l c079 (mostra as info ref a age/idade/expiracao do usuario)
 </li><li>-cat /etc/login.defs (mpstra os padroes de criacao de usuario/login)
 </li><li>-id (mostra o uid, grupos etc.)
+</li><li>-tar xvf aalib_1.4p5-46.debian.tar.xz -C /usr/src/ (extrai o arquivo e me mostre na tela o arquivo e jogue no caminho /usr/src/)
+</li><li>-tar xvf aalib_1.4p5-46.debian.tar.gz -C /usr/src/ (extrai o arquivo e me mostre na tela o arquivo e jogue no caminho /usr/src/)
+</li><li>-dpkg --get-selections >> lista-pacotes-instalados.txt
+</li><li>-dpkg --get-selections | less
+</li><li>-dpkg --get-selections | grep -v deinstall | wc -l (conta a qtd de linhas dos programas instalados q n tenham deinstall)
+</li><li>-whois uol.com.br
+</li>
 </ul>
+</li>
+<li>
+pacote.instalador:
+<ul>
+<li>etc/programa.conf</li>
+<li>lib/lib-programa.so</li>
+<li>bin/programa</li>
+<li>usr/share/man/man7/programa.man.gz</li>
+<li>usr/share/doc/programa/documento.html</li>
+<li>PRE-INST/script</li>
+<li>INST/script</li>
+<li>POST-INST/script</li>
+<li>INFO/DEPENDENCIAS</li>
+</ul>
+</li>
+<li>
+outros comandos basicos n falados acima:
+-more / zless
+- hwclock / tzconfig 
+- nl / zcat
+-shred /
+-split /
+-uniq
+-sed / tr
+-apropos / whatis
+</li>
+<li>
+redirecionamentos e pipes:
+- > / < / >> / << / 2> / 2>> / &> / &>> / | / || / &&
+</li>
+<li>
+comandos de busca:
+- find <caminho> <opcoes>:
+-> find /var/log -type f (pesquisar td q for arquivo)
+-> find /var/log -type d (pesquisar td q for diretorio)
+-> find /var/log -type f -name "aut*" (pesquisar td q for arquivo c trecho do nome igual a "aut" - regex)
+-> find /var/log -type f -mtime -1 (pesquisar td q for arquivo c tempo de modificação menor q 24 horas)
+-> find /var/log -type f -mtime +1 (pesquisar td q for arquivo c tempo de modificação há mais de 24 horas)
+-> find /var/log -type f -mmin -90 (pesquisar td q for arquivo c tempo de modificação há menos de 90 min)
+-> find /var/log -type f -atime - (pesquisar td q for arquivo c acess time há menos de 1 dia)
+-> find /var/log -type f -ctime -1 (pesquisar td q for arquivo c create time há menos de 1 dia)
+-> find /var/log -type f -ctime -1 -delete (pesquisar e jah APAGA td q for arquivo c create time há menos de 1 dia)
+-> find / -type d -perm 4755 (pesquisar td q for diretorio c permissao 4755)
+-> find / -type d -perm 2755 (pesquisar td q for diretorio c permissao 2755)
+-> find / -type f -perm /4000 (pesquisar td q for arquivo c permissao maior q 4000)
+-> find / -type f -uid 1001 (pesquisar td q for arquivo c do usuario id 1001)
+-> find / -type f -user paulo (pesquisar td q for arquivo c do usuario paulo)
+-> find / -type f -name "*.log" -exec gzip {} \; (pesquisar td q for arquivo c nome c "log" no meio e cada resultado vai ser jogado dentro das chaves e o "\;" encerra um comando exec)
+-> find / -type f -name "*.log" -exec grep invalid {} \; (pesquisar td q for arquivo c nome c "log" no meio e cada resultado vai ser jogado dentro das chaves e o "\;" encerra um comando exec)
+-> find / -type f -size + 8M; (pesquisar td q for arquivo c tamanho maior q 8 megas)
+-locate 
+-whereis
+-which
+</li>
+<li>
+comandos de compactacao:
+-zip / unzip / rar / unrar /gzip / bzip2 / xz
+</li>
+<li>
+comandos de backup:
+-tar / dd / rsync
 </li>
 </ol>
