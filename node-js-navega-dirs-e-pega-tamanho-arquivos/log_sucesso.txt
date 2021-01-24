@@ -1,0 +1,86 @@
+C:\Users\Rogerio\.babel.json
+C:\Users\Rogerio\.bash_history
+C:\Users\Rogerio\.dbshell
+C:\Users\Rogerio\.h2.server.properties
+C:\Users\Rogerio\.v8flags.6.8.275.32-node.51.435b5b27e58e5da1b970bbbcb2017a11.json
+C:\Users\Rogerio\.v8flags.7.8.279.23-node.37.435b5b27e58e5da1b970bbbcb2017a11.json
+C:\Users\Rogerio\.viminfo
+C:\Users\Rogerio\Alura-PLN-Analise-de-sentimento-de-filmes.ipynb
+C:\Users\Rogerio\Machine_Learning_Desafio_Kraggle.ipynb
+C:\Users\Rogerio\NTUSER.DAT
+C:\Users\Rogerio\ntuser.dat.LOG1
+C:\Users\Rogerio\ntuser.dat.LOG2
+C:\Users\Rogerio\NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TM.blf
+C:\Users\Rogerio\NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer00000000000000000001.regtrans-ms
+C:\Users\Rogerio\NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer00000000000000000002.regtrans-ms
+C:\Users\Rogerio\Teste-Alura.ipynb
+C:\Users\Rogerio\Untitled.ipynb
+C:\Users\Rogerio\soapui-settings.xml
+C:\Users\Rogerio\.android\adb_usb.ini
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_Erro.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\log_sucesso.txt
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\procura _arquivo_por_tamanho.js
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_arvore.py
+C:\Cursos\ROCKETSEAT\CODE-DROPS\node-js-navega-dirs-e-pega-tamanho-arquivos copy\teste_procura.js
