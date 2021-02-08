@@ -83,6 +83,10 @@ estrutura do sistema de arquivos:
 -/usr - programas do user (firefox, etc), documentacao, manuais, libs dos programas
 -/var - logs, spool, cache, arquivos de pid, fila de email, etc (se n controlar, enche a maquina; geralmente, eh bom deixar numa maquina separada soh p ele)
 - ss -ap | grep -E "(sshd|nginx)" - quero ver o processo sshd e nginx
+- ss -nat (Ip e portas usadas no momento) 
+- ss -natp (Ip e portas usadas no momento c status ESTAB/LISTEN) 
+-iptables -nL (mostra as regras de firewall)
+-iptables -nvL -t nat (mostra as regras de firewall p nat)
 
 tipos de arquivos: arq usados por programas e n tem função especial no sistema e tem o caractere de representação o sinal menos (-):
 1. d - diretorio - contem outros arq dentro deles

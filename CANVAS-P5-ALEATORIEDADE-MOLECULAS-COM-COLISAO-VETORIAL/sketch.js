@@ -1,6 +1,6 @@
-const TOTAL_MOLECULES = 60;
+const TOTAL_MOLECULES = 20;
 const WIDTH = 400;
-const MAX_STARTING_VEL = 2;
+const MAX_STARTING_VEL = 5;
 const molecules = [];
 
 // Parte do código será baseado na implementação de colisão de círculos daqui:
@@ -13,18 +13,23 @@ function setup() {
   }
 }
 
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
 function randomForce() {
+// createVector eh do p5.js
+//valores aleatorios de -1 a +1
   return createVector(Math.random() * MAX_STARTING_VEL - MAX_STARTING_VEL / 2,
                       Math.random() * MAX_STARTING_VEL - MAX_STARTING_VEL / 2);
 }
 
 function newMolecule() {
-  const type = getRandomInt(2);
-  var x = getRandomInt(WIDTH /  4);
+	const type = getRandomInt(2);
+//x começa c 25% da esq
+	var x = getRandomInt(WIDTH /  4);
+//caso tipo =1. x recebe 3/4
   if(type==1) x += 3 * WIDTH / 4;
   const y = getRandomInt(WIDTH);
   

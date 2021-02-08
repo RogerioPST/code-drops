@@ -1,15 +1,19 @@
+//calcula a massa para esse tipo
 function massFor(type) {
-  if(type==0) return 10;
-  return 10;
+  if(type==0) return 25;
+  return 30;
 }
 
+//f eh a randomForce
 function Molecule(x, y, type, f) {
   this.pos = createVector(x, y);
   this.vel = createVector(f.x, f.y);
   //this.acc = createVector(f.x, f.y); // desafio: da pra copiar?
-  this.type = type;
+	this.type = type;
+//estranho a massa ser igual ao raio
   this.rad = massFor(type);
-  this.mass = massFor(type);
+	this.mass = massFor(type);
+//a funcao show() aqui mistura logica com desenho e n deveria ser assim
   this.show = function() {
     // desafio: push e pop
     fill(this.color());
@@ -25,11 +29,15 @@ function Molecule(x, y, type, f) {
 
   this.update = function() {
     this.edges();
-    // desafio: pq limite de velocidade?
+		// desafio: pq limite de velocidade?
+	//this.vel.add(this.acc.div(iterations))
     this.vel.limit(12.5);
-    this.pos.add(this.vel);
+		this.pos.add(this.vel);
+//zera a aceleração
+	//this.acc.mult(0)
   };
 
+//verifica se está na borda. caso esteja, vira um pouco
   this.edges = function() {
     if (this.pos.y < this.rad) {
       this.pos.y = this.rad;
@@ -50,8 +58,13 @@ function Molecule(x, y, type, f) {
   };
 
   this.collideCircle = function(other) {
-    var distance = sqrt(((this.pos.x - other.pos.x) * (this.pos.x - other.pos.x)) + ((this.pos.y - other.pos.y) * (this.pos.y - other.pos.y)));
+		var distance = sqrt(((this.pos.x - other.pos.x) * (this.pos.x - other.pos.x)) + ((this.pos.y - other.pos.y) * (this.pos.y - other.pos.y)));
+//se a distancia entre dois circulos for menor do q o raio
+
     if (distance < this.rad + other.rad) {
+		/* 	console.log('distance', distance)
+			console.log('this.rad', this.rad)
+			console.log('other.rad', other.rad)			 */			
       resolveCollision(this, other);
     }
   };
@@ -104,12 +117,12 @@ function resolveCollision(particle, otherParticle) {
     // DESAFIO: TEM UM BUG NA UTILIZACAO DA MASSA? PQ ESTA ACELERANDO MASSAS DISTINTAS
     // Velocity after 1d collision equation
     var v1 = {
-      x: u1.x * (m1 - m2) / (m1 + m2) + u2.x * 2 * m2 / (m1 + m2),
+      x: u1.x * (m1 - m2) / (m1 + m2) + u2.x * 2 * m2 / (m1 + m2),            
       y: u1.y
     };
     v1 = createVector(v1.x, v1.y);
     var v2 = {
-      x: u2.x * (m1 - m2) / (m1 + m2) + u1.x * 2 * m2 / (m1 + m2),
+      x: u2.x * (m1 - m2) / (m1 + m2) + u1.x * 2 * m2 / (m1 + m2),      
       y: u2.y
     };
     v2 = createVector(v2.x, v2.y);

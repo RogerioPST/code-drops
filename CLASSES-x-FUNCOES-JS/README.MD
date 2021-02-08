@@ -15,10 +15,7 @@ const Livro = {
 Livro.anunciar()
 ```
 </li>
-<li>
-	
-	ate o es6, tinha q fazer com função como construtora de obj.
-o js eh baseado em Prototype
+<li>ate o es6, tinha q fazer com função como construtora de obj. o js eh baseado em Prototype:
 
 ```javascript
 const Livro2 = function(nome, editora, paginas){

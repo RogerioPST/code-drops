@@ -54,7 +54,7 @@ app.use(express.text()) - caso queira texto puro, esse middleware
 coloca no content-type 'text/plain' puro.
 app.use(express.raw()) - no caso de upload
 
-5. CORS - fundamento:
+5. CORS - Cross Origin Resource Sharing - fundamento:
 - recebe e repassa cabecalhos especificos 'Access-Control-*' 
 e 'Origin'
 - requisições complexas (q n sao safe e tem um body q pode
