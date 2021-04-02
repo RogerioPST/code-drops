@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+	<style>
+		main{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			
+		}
+
+		p{
+			max-width: 420px;			
+			font-size: 2em;
+			font-weight: bold;
+		}
+	</style>	
+  <body>
+		<header>
+			<input type="text" placeholder="coloque o valor">
+			<input type="text" placeholder="coloque a descrição">
+			<button onclick="">Adicionar</button>
+		</header>
+		<main>
+		</main>
+    <script>
+      function adicionaNaDiv(valor, descricao) {
+        const div = document.createElement("div");
+        const p = document.createElement("p");
+        p.textContent = descricao;
+        div.appendChild(p);
+        const iframe = document.createElement("iframe");
+        iframe.width = 420;
+        iframe.height = 315;
+        iframe.src = `https://www.youtube.com/embed/${valor}`;
+        div.appendChild(iframe);
+        return div;
+      }
+      const main = document.querySelector("main");
+
+      main.appendChild(adicionaNaDiv("mJK5oGixSYo", "descricao nova nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+      main.appendChild(adicionaNaDiv("tgbNymZ7vqY", "descricao velha nova nova nova nova nova nova nova nova nova"));
+
+      const videoElement = document.createElement("video");
+    </script>
+  </body>
+</html>
