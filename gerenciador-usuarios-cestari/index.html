@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>celcc</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>    
+    <main>
+			<div class="alerta">
+				asassa
+			</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Rotinas</th>
+            <th>Iniciar</th>
+            <th>Finalizar</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>        
+          <tr>
+            <td>- ABERTURA ROTINA 4460 D-0</td>
+            <td>
+							<div class="acao">
+							<input type="text" id="matricula-inicia-1" onchange="limpar(event, 1)" />
+              <label class="switch">								
+								<div class="switch-wrapper">
+									<input type="checkbox" name="watch" id="inicia-1" onclick="realizar(event,1)" />
+									<span class="switch-button"></span>
+								</div>
+							</label>
+							</div>
+            </td>  
+            <td>
+							<div class="acao">
+								<input type="text" id="matricula-finaliza-1" onchange="limpar(event, 1)" />
+              <label class="switch">								
+								<div class="switch-wrapper">
+									<input type="checkbox" name="watch" id="finaliza-1" onclick="realizar(event, 1)" />
+									<span class="switch-button"></span>
+								</div>
+							</label>
+							</div>
+            </td>  
+            <td><button class="finalizado" id="btn-rotina-1">Finalizado</button></td>
+          </tr>          
+          <tr>
+            <td>- ANALISE QUADROS MUNICAO</td>
+            <td>
+							<div class="acao">
+							<input type="text" id="matricula-inicia-2" onchange="limpar(event, 2)" />
+              <label class="switch">								
+								<div class="switch-wrapper">
+									<input type="checkbox" name="watch" id="inicia-2" onclick="realizar(event, 2)" />
+									<span class="switch-button"></span>
+								</div>
+							</label>
+							</div>
+            </td>  
+            <td>
+							<div class="acao">
+							<input type="text" id="matricula-finaliza-2" onchange="limpar(event, 2)"/>
+              <label class="switch">								
+								<div class="switch-wrapper">
+									<input type="checkbox" name="watch" id="finaliza-2" onclick="realizar(event, 2)" />
+									<span class="switch-button"></span>
+								</div>
+							</label>
+							</div>
+            </td>  
+            <td><button class="nao-iniciado" id="btn-rotina-2">Não iniciado</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button onclick="finalizar()">Finalizar dia</button>			
+    </main>  
+	<script src="calcula.js"></script> 
+  </body>
+</html>
